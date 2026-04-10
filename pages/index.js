@@ -245,7 +245,7 @@ function AdminView() {
   };
 
   const addMember = async () => {
-    if (!newMember.firstName || !newMember.lastName || !newMember.email || !newMember.membershipType) return;
+    if (!newMember.firstName || !newMember.lastName || !newMember.email || !newMember.membershipType || !newMember.zeffyNumber) return;
     setSaving(true);
     try {
       const res = await fetch("/api/add-member", {
@@ -337,8 +337,8 @@ function AdminView() {
                 <input style={S.input} value={newMember.expiryDate} onChange={e => setNewMember(p => ({ ...p, expiryDate: e.target.value }))} placeholder="e.g. 2027-02-27" />
               </div>
               <div>
-                <label style={S.lbl}>Zeffy member # (optional)</label>
-                <input style={S.input} value={newMember.zeffyNumber} onChange={e => setNewMember(p => ({ ...p, zeffyNumber: e.target.value }))} placeholder="e.g. 21" />
+                <label style={S.lbl}>Zeffy member # <span style={{color:"#E24B4A"}}>*</span></label>
+                <input style={S.input} value={newMember.zeffyNumber} onChange={e => setNewMember(p => ({ ...p, zeffyNumber: e.target.value }))} placeholder="e.g. 21" required />
               </div>
             </div>
             <button style={S.btn("primary")} onClick={addMember} disabled={saving}>{saving ? "Adding…" : "Add member & send welcome email"}</button>
