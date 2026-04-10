@@ -1,0 +1,4 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: Georgia, serif; background: #f4f4f0; color: #1a1a1a; min-height: 100vh; }
+input, select, button, textarea { font-family: sans-serif; }
