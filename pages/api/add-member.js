@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     const existing = await getMembers();
     const usedCodes = new Set(existing.map(m => m.code));
     const code = generateCode(usedCodes);
-    const kmaNumber = "KMA-" + String(existing.length + 1).padStart(3, "0");
+    const kmaNumber = "KMA-" + zeffyNumber;
     const couponsIssued = MEMBERSHIP_COUPONS[membershipType] || 1;
     const rowIndex = existing.length + 2;
 
